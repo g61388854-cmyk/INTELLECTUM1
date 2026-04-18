@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowUpRight, Brain, Menu, X } from 'lucide-react';
+import { Brain, Menu, Send, X } from 'lucide-react';
+
+const TELEGRAM_URL = 'https://t.me/ai0090012';
 
 const links = [
   { label: 'Overview', href: '#overview' },
@@ -32,11 +34,13 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#contact"
+            href={TELEGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-1 bg-white text-black rounded-full px-4 py-2 text-sm font-semibold font-body"
           >
-            Get Prompts
-            <ArrowUpRight className="h-4 w-4" />
+            <Send className="h-3.5 w-3.5" />
+            Telegram
           </a>
         </div>
 
@@ -69,12 +73,14 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="#contact"
+              href={TELEGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
               className="mt-2 w-full flex items-center justify-center gap-1 bg-white text-black rounded-full px-4 py-2.5 text-sm font-semibold font-body"
             >
-              Get Prompts
-              <ArrowUpRight className="h-4 w-4" />
+              <Send className="h-4 w-4" />
+              Telegram @ai0090012
             </a>
           </motion.div>
         )}

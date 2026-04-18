@@ -1,5 +1,7 @@
-import { ArrowUpRight, Copy } from 'lucide-react';
+import { ArrowUpRight, Copy, Send } from 'lucide-react';
 import { useState } from 'react';
+
+const TELEGRAM_URL = 'https://t.me/ai0090012';
 
 type Prompt = {
   tag: string;
@@ -11,40 +13,12 @@ type Prompt = {
 
 const prompts: Prompt[] = [
   {
-    tag: 'UI / Landing',
-    title: 'Premium Landing Architect',
-    desc: 'Собирает премиум-лендинг с типографикой, liquid-glass и точными анимациями — один промпт, готовый React-проект на выходе.',
-    excerpt:
-      'Build a premium landing page using React, TypeScript, Tailwind, Framer Motion and a custom "liquid glass" morphism effect…',
-  },
-  {
-    tag: 'Brand / Copy',
-    title: 'Voice Distiller',
-    desc: 'Превращает сырое описание бренда в голос: манифест, тон, словарь запретных слов и 10 готовых заголовков.',
-    excerpt:
-      'Act as a senior brand strategist. Given the raw description below, produce a voice system with manifesto, tone rules…',
-  },
-  {
     tag: 'Photo / Portrait',
     title: 'Identity-Locked Portrait',
     desc: 'Чёрно-белый аналоговый портрет с 1:1 сохранением лица из референса. Жёсткий identity-lock, контраст, плёночное зерно, киношный грейдинг.',
     excerpt:
       'Ultra-photorealistic B&W portrait based strictly on the reference. CRITICAL: facial identity 1:1 — exact eyes, nose, lips, bone structure, asymmetry, skin texture. Chest-up, profile, single directional soft-contrasty light, black turtleneck, analog film grain, no stylization.',
     image: '/prompts/identity-lock.jpg',
-  },
-  {
-    tag: 'Code / Agent',
-    title: 'Refactor Sentinel',
-    desc: 'Находит слабые места в кодовой базе, предлагает точечный рефакторинг без ломающих изменений и пишет PR-описание.',
-    excerpt:
-      'You are a senior engineer doing a surgical refactor. Do not introduce new abstractions. Output: diff plan, risks…',
-  },
-  {
-    tag: 'Marketing',
-    title: 'Launch Funnel Writer',
-    desc: 'Генерит воронку запуска: лид-магнит, welcome-письмо, 3 прогревочных поста и продающее письмо — в едином тоне.',
-    excerpt:
-      'Role: conversion copywriter. Produce a 5-step launch funnel targeting {ICP}. Keep voice consistent across assets…',
   },
   {
     tag: 'Photo / Casting',
@@ -138,15 +112,42 @@ export default function Prompts() {
             </h2>
           </div>
           <p className="text-white/60 font-body font-light text-sm md:text-base max-w-sm leading-relaxed">
-            Шесть инструментов, которые я использую в работе каждый день. Ниже — превью.
-            Полная версия и контекст применения — в письме.
+            Ниже — избранное. Полный каталог промптов, кейсы и свежие эксперименты
+            публикую в Telegram-канале.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {prompts.map((p) => (
             <PromptCard key={p.title} p={p} />
           ))}
+        </div>
+
+        <div className="mt-16 liquid-glass rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="max-w-xl">
+            <div className="liquid-glass-strong rounded-full px-3 py-1 inline-flex items-center gap-2 mb-4">
+              <Send className="h-3.5 w-3.5 text-white" />
+              <span className="text-[10px] uppercase tracking-widest font-body font-medium text-white/80">
+                Telegram
+              </span>
+            </div>
+            <h3 className="text-3xl md:text-4xl font-heading italic text-white leading-[0.95]">
+              Ещё больше — в моём канале.
+            </h3>
+            <p className="mt-3 text-white/60 font-body font-light text-sm md:text-base leading-relaxed">
+              Новые промпты, разборы и эксперименты выходят там первыми. Здесь — только
+              избранное.
+            </p>
+          </div>
+          <a
+            href={TELEGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="liquid-glass-strong rounded-full px-6 py-3 text-white font-body text-sm font-medium inline-flex items-center gap-2 whitespace-nowrap"
+          >
+            @ai0090012
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
         </div>
       </div>
     </section>

@@ -1,5 +1,7 @@
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Send } from 'lucide-react';
 import HlsVideo from './HlsVideo';
+
+const TELEGRAM_URL = 'https://t.me/ai0090012';
 
 export default function CtaFooter() {
   return (
@@ -21,25 +23,28 @@ export default function CtaFooter() {
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-end justify-between gap-12">
           <div className="max-w-xl">
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-heading italic text-white leading-[0.85]">
-              Забрать промпты в работу.
+              Больше промптов — в Telegram.
             </h2>
             <p className="mt-6 text-white/60 font-body font-light text-sm md:text-base max-w-md leading-relaxed">
-              Напиши — пришлю полную версию библиотеки с инструкциями, переменными и
-              примерами запуска. Никаких рассылок, только инструменты.
+              Публикую новые авторские промпты, разборы и эксперименты в канале.
+              Подпишись — там всё свежее и без воды.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a
-                href="mailto:hi@intellectum.ai"
-                className="liquid-glass-strong rounded-full px-6 py-3 text-white font-body text-sm font-medium inline-flex items-center gap-2"
+                href={TELEGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white text-black rounded-full px-6 py-3 font-body text-sm font-medium inline-flex items-center gap-2"
               >
-                Связаться
-                <ArrowUpRight className="h-4 w-4" />
+                <Send className="h-4 w-4" />
+                @ai0090012
               </a>
               <a
                 href="#prompts"
-                className="bg-white text-black rounded-full px-6 py-3 font-body text-sm font-medium"
+                className="liquid-glass-strong rounded-full px-6 py-3 text-white font-body text-sm font-medium inline-flex items-center gap-2"
               >
-                Все промпты
+                К промптам
+                <ArrowUpRight className="h-4 w-4" />
               </a>
             </div>
           </div>
@@ -50,7 +55,15 @@ export default function CtaFooter() {
             © {new Date().getFullYear()} INTELLECTUM. Все промпты — авторские.
           </p>
           <div className="flex items-center gap-6">
-            {['Privacy', 'Terms', 'Contact'].map((l) => (
+            <a
+              href={TELEGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/40 text-xs font-body hover:text-white/60"
+            >
+              Telegram
+            </a>
+            {['Privacy', 'Terms'].map((l) => (
               <a
                 key={l}
                 href="#contact"
