@@ -6,6 +6,7 @@ type Prompt = {
   title: string;
   desc: string;
   excerpt: string;
+  image?: string;
 };
 
 const prompts: Prompt[] = [
@@ -29,6 +30,7 @@ const prompts: Prompt[] = [
     desc: 'Чёрно-белый аналоговый портрет с 1:1 сохранением лица из референса. Жёсткий identity-lock, контраст, плёночное зерно, киношный грейдинг.',
     excerpt:
       'Ultra-photorealistic B&W portrait based strictly on the reference. CRITICAL: facial identity 1:1 — exact eyes, nose, lips, bone structure, asymmetry, skin texture. Chest-up, profile, single directional soft-contrasty light, black turtleneck, analog film grain, no stylization.',
+    image: '/prompts/identity-lock.jpg',
   },
   {
     tag: 'Code / Agent',
@@ -45,11 +47,12 @@ const prompts: Prompt[] = [
       'Role: conversion copywriter. Produce a 5-step launch funnel targeting {ICP}. Keep voice consistent across assets…',
   },
   {
-    tag: 'Strategy',
-    title: 'Product Narrative',
-    desc: 'Раскладывает продукт на нарратив: проблема, враг, обещание, доказательство, призыв. Без водянистых фраз.',
+    tag: 'Photo / Casting',
+    title: 'High-Fashion Casting',
+    desc: 'Editorial casting-test с белым или чёрным seamless-фоном. Голый свет, фронтальный взгляд, дермо-макро детализация кожи, хай-фэшн кастинг-эстетика.',
     excerpt:
-      'You are a narrative strategist. Using the Stokes / Godin framework, craft a 5-beat product story for {product}…',
+      'Ultra-high-res portrait on pure seamless studio background. Head and shoulders, straight gaze, no rotation. Medium-format film look, 85mm f/4, ISO 100, soft diffused frontal light. Dermatological macro skin detail — pores, iris fibers, dry lips, tendons. Editorial casting, no retouch, no makeup.',
+    image: '/prompts/editorial-casting.jpg',
   },
 ];
 
@@ -80,6 +83,17 @@ function PromptCard({ p }: { p: Prompt }) {
           <Copy className="h-4 w-4" />
         </button>
       </div>
+
+      {p.image && (
+        <div className="mt-5 liquid-glass-strong rounded-xl overflow-hidden aspect-[4/5]">
+          <img
+            src={p.image}
+            alt={p.title}
+            loading="lazy"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )}
 
       <h3 className="mt-5 text-2xl md:text-3xl font-heading italic text-white leading-[0.95]">
         {p.title}
