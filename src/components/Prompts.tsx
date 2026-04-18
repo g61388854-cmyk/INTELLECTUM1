@@ -24,11 +24,11 @@ const prompts: Prompt[] = [
       'Act as a senior brand strategist. Given the raw description below, produce a voice system with manifesto, tone rules…',
   },
   {
-    tag: 'Image / MJ',
-    title: 'Cinematic Frame',
-    desc: 'Промпт для Midjourney / Flux, который стабильно выдаёт киношный кадр: свет, оптика, композиция, пост-обработка.',
+    tag: 'Photo / Portrait',
+    title: 'Identity-Locked Portrait',
+    desc: 'Чёрно-белый аналоговый портрет с 1:1 сохранением лица из референса. Жёсткий identity-lock, контраст, плёночное зерно, киношный грейдинг.',
     excerpt:
-      'cinematic still, anamorphic 2.39:1, warm key light + cold rim, shallow DOF at f/1.8, Kodak Portra 800 grain…',
+      'Ultra-photorealistic B&W portrait based strictly on the reference. CRITICAL: facial identity 1:1 — exact eyes, nose, lips, bone structure, asymmetry, skin texture. Chest-up, profile, single directional soft-contrasty light, black turtleneck, analog film grain, no stylization.',
   },
   {
     tag: 'Code / Agent',
